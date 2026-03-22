@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gita AI — Divine Wisdom for the Modern Soul</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tiro+Devanagari+Sanskrit&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <nav>
+  <div class="nav-logo">ॐ <span>GitaAI</span></div>
+  <button class="nav-btn active" onclick="showSection('home')">Home</button>
+  <button class="nav-btn" onclick="showSection('chat')">AI Chat</button>
+  <button class="nav-btn" onclick="showSection('krishna')">Krishna Mode</button>
+  <button class="nav-btn" onclick="showSection('shloka')">Shloka Finder</button>
+  <button class="nav-btn" onclick="showSection('wisdom')">Daily Wisdom</button>
+  <button class="nav-btn" onclick="showSection('guidance')">Life Guidance</button>
+  <button class="nav-btn" onclick="showSection('mood')">Mood Dharma</button>
+  <button class="nav-btn" onclick="showSection('simulator')">Life Simulator</button>
+  <button class="nav-btn" onclick="showSection('voice')">Voice Guru</button>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('hi')">HI</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- HOME -->
+<section id="section-home" class="section active">
+  <div class="om-symbol">ॐ <img src="https://thumbs.dreamstime.com/b/glowing-red-diya-oil-lamp-golden-detailing-sits-radiant-circular-frame-symbolizing-diwali-festival-illuminated-358651976.jpg" height="200"></div>
+  <h1 class="hero-title">Ancient Wisdom.<br><em>Modern Guidance.</em></h1>
+  <p class="hero-subtitle">The Bhagavad Gita's eternal teachings, brought to life through AI for the seekers of today.</p>
+
+  <div class="hero-verse">
+    <span class="sanskrit">यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।<br>अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥</span>
+    <span class="translation">Whenever dharma declines and adharma rises, I manifest myself. — Lord Krishna</span>
+    <span class="ref">BG 4.7</span>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card" onclick="showSection('chat')">
+      <span class="icon">💬</span>
+      <h3>AI Gita Chat</h3>
+      <p>Ask anything. Receive Gita-based wisdom.</p>
+    </div>
+    <div class="feature-card" onclick="showSection('krishna')">
+      <span class="icon">🦚</span>
+      <h3>Krishna Mode</h3>
+      <p>Speak directly with Lord Krishna's voice.</p>
+    </div>
+    <div class="feature-card" onclick="showSection('shloka')">
+      <span class="icon">📖</span>
+      <h3>Shloka Finder</h3>
+      <p>Search by topic. Find the perfect verse.</p>
+    </div>
+    <div class="feature-card" onclick="showSection('wisdom')">
+      <span class="icon">🌅</span>
+      <h3>Daily Wisdom</h3>
+      <p>Your daily dose of Gita motivation.</p>
+    </div>
+    <div class="feature-card" onclick="showSection('guidance')">
+      <span class="icon">🧭</span>
+      <h3>Life Guidance</h3>
+      <p>Real situations. Gita-powered guidance.</p>
+    </div>
+    <div class="feature-card" onclick="showSection('mood')">
+      <span class="icon">🌊</span>
+      <h3>Mood Dharma</h3>
+      <p>AI detects your mood & prescribes dharma.</p>
+    </div>
+    <div class="feature-card" onclick="showSection('simulator')">
+      <span class="icon">⚖️</span>
+      <h3>Life Simulator</h3>
+      <p>Simulate life choices through Gita's lens.</p>
+    </div>
+    <div class="feature-card" onclick="showSection('voice')">
+      <span class="icon">🎙️</span>
+      <h3>Voice Guru</h3>
+      <p>Ask aloud. Receive spoken divine wisdom.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AI CHAT -->
+<section id="section-chat" class="section">
+  <div class="section-header">
+    <span class="icon">💬</span>
+    <div>
+      <h1>AI <em>Gita</em> Chat</h1>
+      <p>GITA-BASED ANSWERS FOR YOUR QUESTIONS</p>
+    </div>
+  </div>
+  <div class="chat-container" id="chat-container">
+    <div class="chat-messages" id="chat-messages">
+      <div class="message bot">
+        <div class="msg-avatar">🕉️</div>
+        <div class="msg-bubble">Namaste 🙏 I am your Bhagavad Gita guide. Ask me anything — about life, dharma, relationships, purpose, or the eternal teachings of the Gita. I will answer with the wisdom of Krishna's words.
+          
+        </div>
+        <img src="https://restofworld.org/wp-content/uploads/2023/05/AI_Chatbots_HeaderImage-1-1600x900.jpg"height="200">
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <textarea class="chat-input" id="chat-input" placeholder="Ask your question here... (English or Hindi)" rows="1" onkeydown="handleChatKey(event, 'chat')"></textarea>
+      <button class="send-btn" id="chat-send-btn" onclick="sendChat()">➤</button>
+    </div>
+  </div>
+</section>
+
+<!-- KRISHNA MODE -->
+<section id="section-krishna" class="section">
+  <div class="section-header">
+    <span class="icon">🦚</span>
+    <div>
+      <h1><em>Krishna</em> Mode</h1>
+      <p>SPEAK DIRECTLY WITH THE DIVINE</p>
+    </div>
+  </div>
+  <div class="krishna-header">
+    <span class="peacock">🦚</span>
+    <div>
+      <h2>Lord Krishna is present</h2>
+      <p>SPEAK AS ARJUNA SPOKE ON KURUKSHETRA</p>
+    </div>
+  </div>
+  <div class="chat-container krishna-chat">
+    <div class="chat-messages" id="krishna-messages">
+      <div class="message bot">
+        <div class="msg-avatar">🦚</div>
+        <img src="https://roadtodivinity.wordpress.com/wp-content/uploads/2020/12/krishna-gita.jpg" height="200">
+        <div class="msg-bubble">My dear friend, I am here. Just as I spoke to Arjuna when his spirit faltered, I speak to you now. What weighs upon your heart? What confusion clouds your mind? Ask freely — for in this sacred moment, there is only you and I, and the eternal truth between us. 🙏</div>
+      </div>
+    </div>
+    
+    <div class="chat-input-area">
+      <textarea class="chat-input" id="krishna-input" placeholder="Speak to Krishna as Arjuna did..." rows="1" onkeydown="handleChatKey(event, 'krishna')"></textarea>
+      <button class="send-btn" id="krishna-send-btn" onclick="sendKrishna()">🦚</button>
+    </div>
+  </div>
+</section>
+
+<!-- SHLOKA FINDER -->
+<section id="section-shloka" class="section">
+  <div class="section-header">
+    <span class="icon">📖</span>
+    <div>
+      <h1>Shloka <em>Finder</em></h1>
+      <p>SEARCH THE GITA BY TOPIC OR FEELING</p>
+      
+    </div>
+  </div>
+  <div class="search-bar">
+    <input class="search-input" id="shloka-search" placeholder="Enter a topic (e.g. fear, duty, love, success...)" onkeydown="if(event.key==='Enter') findShlokas()"/>
+    <button class="btn" onclick="findShlokas()">Search Shlokas </button><img src="https://malamantra.in/wp-content/uploads/2025/05/Bhagavad-Gita-Shloka-in-Focus-min.png" height="200">
+  </div>
+  <div class="topic-chips">
+    <span class="chip" onclick="quickSearch('karma and duty')">Karma & Duty</span>
+    <span class="chip" onclick="quickSearch('overcoming fear')">Fear</span>
+    <span class="chip" onclick="quickSearch('detachment from results')">Detachment</span>
+    <span class="chip" onclick="quickSearch('self realization and atman')">Self-Realization</span>
+    <span class="chip" onclick="quickSearch('anger and control')">Anger</span>
+    <span class="chip" onclick="quickSearch('love and devotion bhakti')">Devotion</span>
+    <span class="chip" onclick="quickSearch('death and the soul')">Death & Soul</span>
+    <span class="chip" onclick="quickSearch('equanimity and peace of mind')">Peace of Mind</span>
+    <span class="chip" onclick="quickSearch('meditation and yoga')">Meditation</span>
+    <span class="chip" onclick="quickSearch('friendship and relationships')">Relationships</span>
+    
+  </div>
+
+  <div id="shloka-results"></div>
+  
+</section>
+
+<!-- DAILY WISDOM -->
+<section id="section-wisdom" class="section">
+  <div class="section-header">
+    <span class="icon">🌅</span>
+    <div>
+      <h1>Daily <em>Wisdom</em></h1>
+      <p>YOUR DAILY SHLOKA AND REFLECTION</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuvN-xP-eVqOUGb8B5LvUlgDLOyieMfHdmSg&s" height="200" weight="200">
+    </div>
+  </div>
+  <div id="wisdom-content">
+    <div class="loading"><div class="loading-dots"><span></span><span></span><span></span></div>Loading today's wisdom...</div>
+  </div>
+  <div style="margin-top:1.5rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+    <button class="btn" onclick="loadDailyWisdom()">🔄 Refresh Wisdom</button>
+    <button class="btn btn-outline" onclick="shareWisdom()">Share Today's Shloka</button>
+  </div>
+</section>
+
+<!-- LIFE GUIDANCE -->
+<section id="section-guidance" class="section">
+  <div class="section-header">
+    <span class="icon">🧭</span>
+    <div>
+      <h1>Life <em>Guidance</em></h1>
+      <p>SHARE YOUR SITUATION, RECEIVE DHARMIC GUIDANCE</p>
+    </div>
+  </div>
+  <p style="color:var(--text-dim); font-style:italic; margin-bottom:1.5rem;">Describe your life situation or challenge. Gita AI will analyze it and provide wisdom-based guidance tailored to your path.</p>
+  <div class="guidance-scenarios">
+    <div class="scenario-chip" onclick="fillGuidance('I am feeling lost in my career and don\'t know what my purpose is.')"><span class="emoji">💼</span>Career Confusion</div>
+    <div class="scenario-chip" onclick="fillGuidance('I am going through a painful breakup and feeling heartbroken.')"><span class="emoji">💔</span>Heartbreak</div>
+    <div class="scenario-chip" onclick="fillGuidance('I am struggling with family conflict and tension at home.')"><span class="emoji">🏠</span>Family Conflict</div>
+    <div class="scenario-chip" onclick="fillGuidance('I am feeling overwhelmed with anxiety and mental stress.')"><span class="emoji">😰</span>Anxiety</div>
+    <div class="scenario-chip" onclick="fillGuidance('I feel guilty about a decision I made and cannot forgive myself.')"><span class="emoji">😔</span>Guilt</div>
+    <div class="scenario-chip" onclick="fillGuidance('I am facing failure and feel like giving up on my dreams.')"><span class="emoji">🌊</span>Failure</div>
+  </div>
+  <div class="mood-input-area">
+    <textarea id="guidance-input" placeholder="Describe your situation in detail... (English or Hindi)"></textarea>
+  </div>
+  <button class="btn" onclick="getGuidance()">Seek Dharmic Guidance</button>
+  <div id="guidance-result" style="margin-top:1.5rem;"></div>
+</section>
+
+<!-- MOOD DHARMA -->
+<section id="section-mood" class="section">
+  <div class="section-header">
+    <span class="icon">🌊</span>
+    <div>
+      <h1>Mood <em>Dharma</em></h1>
+      <p>AI DETECTS YOUR EMOTIONAL STATE & PRESCRIBES GITA WISDOM</p>
+    </div>
+  </div>
+  <p style="color:var(--text-dim); font-style:italic; margin-bottom:1.5rem;">Express how you are feeling right now. Write freely — our AI will sense your mood and offer the perfect Gita medicine.</p>
+  <div class="mood-input-area">
+    <textarea id="mood-input" placeholder="How are you feeling right now? What's going on inside..."></textarea>
+  </div>
+  <button class="btn" onclick="analyzeMood()">Analyze My Mood</button>
+  <div id="mood-result" style="margin-top:1.5rem;"></div>
+</section>
+
+<!-- LIFE SIMULATOR -->
+<section id="section-simulator" class="section">
+  <div class="section-header">
+    <span class="icon">⚖️</span>
+    <div>
+      <h1>Dharma <em>Life Simulator</em></h1>
+      <p>SIMULATE LIFE CHOICES THROUGH THE GITA'S LENS</p>
+    </div>
+  </div>
+  <p class="simulator-desc">Describe a dilemma or crossroads you're facing. The Dharma AI will simulate multiple paths, their karmic consequences, and guide you to the most dharmic choice — just as Krishna guided Arjuna.</p>
+  <div class="simulator-input">
+    <textarea id="simulator-input" placeholder="Describe your dilemma or life crossroads... e.g. 'Should I leave my stable job to pursue my passion for art? I have family responsibilities but feel unfulfilled.'"></textarea>
+    <button class="btn" onclick="runSimulation()">Run Life Simulation</button>
+  </div>
+  <div id="simulator-result" style="margin-top:1.5rem;"></div>
+</section>
+
+<!-- VOICE GURU -->
+<section id="section-voice" class="section">
+  <div class="section-header">
+    <span class="icon">🎙️</span>
+    <div>
+      <h1>Voice <em>Guru</em></h1>
+      <p>SPEAK YOUR QUESTION. RECEIVE SPOKEN DIVINE WISDOM.</p>
+    </div>
+  </div>
+  <div class="voice-section">
+    <p style="color:var(--text-dim); font-style:italic; text-align:center; max-width:400px;">Press the orb and speak your question. The Voice Guru will respond with wisdom from the Bhagavad Gita — both as text and spoken aloud.</p>
+    
+    <div class="voice-orb" id="voice-orb" onclick="toggleVoiceRecording()">
+      <span class="voice-orb-icon" id="voice-orb-icon">🎙️</span>
+    </div>
+    <div class="voice-status" id="voice-status">TAP TO SPEAK YOUR QUESTION</div>
+
+    <div class="voice-transcript" id="voice-transcript" style="display:none;"></div>
+
+    <div id="voice-response-area" style="width:100%; display:none;">
+      <div class="voice-response" id="voice-response"></div>
+      <button class="voice-play-btn" id="voice-play-btn" onclick="playVoiceResponse()">🔊 Play Response</button>
+    </div>
+
+    <div style="width:100%;">
+      <div class="divider">OR TYPE YOUR QUESTION</div>
+      <div style="display:flex; gap:0.75rem;">
+        <input class="search-input" id="voice-text-input" placeholder="Type your question to the Voice Guru..." style="flex:1;" onkeydown="if(event.key==='Enter') sendTextToVoiceGuru()"/>
+        <button class="btn" onclick="sendTextToVoiceGuru()">Ask</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
